@@ -13,7 +13,9 @@ const path = require("path");
 app.use(express.static(path.join(__dirname, "client/build")));
 
 //this is our MongoDB database
-const dbRoute = process.env.MONGO_DB;
+//const dbRoute = process.env.MONGO_DB; // It was for local env variables.
+const config = require("../config/config");
+const dbRoute = config.db;
 
 //connects our back end code with the database
 mongoose.connect(
